@@ -1,1 +1,1 @@
- # Práctica 0
+ Practicando Git 2023

@@ -1,8 +1,11 @@
 
 * {
     box-sizing: border-box;
-    min-height: 40px;
   }
+
+.columna {
+    float: left;
+}
 
 .b1 {
     width: 25%;

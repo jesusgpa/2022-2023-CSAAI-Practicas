@@ -1,21 +1,15 @@
-
-* {
-    box-sizing: border-box;
-  }
-
 .columna {
     float: left;
 }
 
 .b1 {
-    width: 25%;
+    width: 30%;
 }
 
 .b2 {
-    width: 25%;
+    width: 15%;
 }
 
-
 .b3 {
-    width: 25%;
+    width: 20%;
 }

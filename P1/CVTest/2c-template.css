@@ -20,6 +20,14 @@ width: 25%;
 width: 75%;
 }
 
+.c1iz {
+  width: 50%;
+}
+
+.c1dr {
+  width: 50%;
+}
+
 /* Clear floats despues de las columnas para eliminar la superposición */
 .filla:after {
 content: "";

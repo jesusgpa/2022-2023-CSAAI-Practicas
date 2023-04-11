@@ -52,10 +52,14 @@ dibujarO(xo,yo); // Pintar el objetivo
 dibujarLogo(xlg, ylg); // Pintar el logo de la URJC
 
 //-- Velocidad del proyectil
-let velp = 3;
+let velpx = 1;
+let velpy = 10;
 
 //-- Velocidad del logo
-let velLg = 0.5;
+let velLg = 1;
+
+let g = 9.8;
+
 
 //-- Función principal de actualización
 function lanzar() 
@@ -64,10 +68,16 @@ function lanzar()
 
     //-- 1) Actualizar posición de los elementos
     //-- Actualizamos la velocidad del proyectil en el eje x
-    xp = xp + velp;
+    xp = xp + velpx;
+    yp = yp - velpy + 9.8;
+    console.log(yp);
 
     //-- Actualizamos la velocidad del logo en el eje x
     xlg = xlg + velLg;
+
+    if ( xlg < 0 || xlg >= (canvas.width - 290) ) {
+        velLg = -velLg;
+    }
 
     //-- 2) Borrar el canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);

@@ -26,12 +26,13 @@ const generateGame = () => {
 
     //-- Creamos un array con los emojis que vamos a utilizar en nuestro juego
     const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
+    const img = ['logo-urjc.png', 'logo-urjc.png', 'logo-urjc.png', 'logo-urjc.png', 'logo-urjc.png', 'logo-urjc.png']
 
     //-- Elegimos un subconjunto de emojis al azar, así cada vez que comienza el juego
     // es diferente.
     // Es decir, si tenemos un array con 10 emojis, vamos a elegir el cuadrado de las
     // dimensiones entre dos, para asegurarnos de que cubrimos todas las cartas
-    const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
+    const picks = pickRandom(img, (dimensions * dimensions) / 2) 
 
     //-- Después descolocamos las posiciones para asegurarnos de que las parejas de cartas
     // están desordenadas.
@@ -40,11 +41,11 @@ const generateGame = () => {
     //-- Vamos a utilizar una función de mapeo para generar 
     //  todas las cartas en función de las dimensiones
     const cards = `
-        <div class="tablero" style="grid-template-columns: repeat(${dimensions}, auto)">
+        <div class="tablero" style="grid-template-columns: repeat(${dimensions}, auto)" grid-dimension="4">
             ${items.map(item => `
-                <div class="card">
+                <div class="card" item-back="${item}">
                     <div class="card-front"></div>
-                    <div class="card-back">${item}</div>
+                    <div class="card-back"><img src="${item}"></div>
                 </div>
             `).join('')}
        </div>
@@ -159,7 +160,7 @@ const flipCard = card => {
 
         // Si las cartas coinciden las marcamos como pareja 
         // añadiendo la clase correspondiente
-        if (flippedCards[0].innerText === flippedCards[1].innerText) {
+        if (flippedCards[0].getAttribute('item-back') === flippedCards[1].getAttribute('item-back')) {
             flippedCards[0].classList.add('matched')
             flippedCards[1].classList.add('matched')
         }
